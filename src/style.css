@@ -52,6 +52,9 @@ p{
     align-items: center;
     
 }
+.temp-details{
+    display: flex;
+}
 .temp-value{
     font-size: 88px;
     line-height: 88px;
@@ -65,7 +68,8 @@ p{
 .temp-unit{
     vertical-align: top;
     font-size: 28px;
-    margin-top: 16px;
+    margin-top: 10px;
+    
 }
 footer{
 border-top: 1px solid #f3f0fc;
