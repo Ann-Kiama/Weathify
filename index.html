@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
     <title>Weathify</title>
 </head>
 <body>
@@ -18,7 +19,6 @@
         <div class="weather-data">
         <div>
         <h1 id="city">
-            Paris
         </h1>
         <p>
             Monday 12:30, scattered clouds
@@ -29,7 +29,7 @@
         </div>
         <div class="temp-details">
             <div class="temp-icon">⛅</div>
-            <div class="temp-value">12</div>
+            <div class="temp-value" id="temperature"></div>
             <div class="temp-unit">℃</div>
         </div>
         </div>
