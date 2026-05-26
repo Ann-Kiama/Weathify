@@ -6,7 +6,7 @@ header{
     padding: 0 0 28px 0;
 }
 main{
-    margin: 20px 0;
+    margin: 8px 0;
 }
 .weather-details{
     font-weight: 600;
@@ -49,8 +49,32 @@ p{
 .weather-data{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;  
+    padding: 8px; 
+}
+.weather-forecast {
+    display: flex;
+    justify-content: space-around;
+}
+.weather-forcast-day{
+    text-align: center;
+    color:#27214266;
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 20px;
+}
+.weather-forecast-icon{
+    text-align: center;
+    font-size: 32px;
     
+}
+.weather-forecast-temp{
+    display: flex;
+    justify-content: center;
+}
+.weather-forecast-temperature{
+    padding: 6px;
+    color: #F65282;
 }
 .temp-details{
     display: flex;
