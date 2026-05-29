@@ -45,7 +45,31 @@ let searchInput=document.querySelector("#search-input");
 searchCity(searchInput.value);
 }
 
+function displayForecast(){
+   
+
+    let days=["Sun","Mon", "Tue", "Wed","Thur","Fri","Sat"];
+    let forecastHtml="";
+
+    days.forEach(function(day) {
+        forecastHtml=forecastHtml +
+        `<div class="weather-forcast-details">
+            <div class="weather-forcast-day"> ${day}</div> 
+            <div class="weather-forecast-icon">⛅</div> 
+            <div class="weather-forecast-temp">
+            <div class="weather-forecast-temperature"><strong>24°</strong></div>
+            <div class="weather-forecast-temperature">17°</div>
+            </div>
+         </div>`;
+    });
+
+    let forecastElement=document.querySelector("#forecast");
+    forecastElement.innerHTML=forecastHtml;
+}
+
 let searchFormElement= document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
 
 searchCity("Nairobi");
+displayForecast();
+
