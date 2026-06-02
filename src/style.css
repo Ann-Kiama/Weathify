@@ -65,8 +65,8 @@ p{
 }
 .weather-forecast-icon{
     text-align: center;
-    font-size: 32px;
-    
+    width:88px;
+    height: 88px;
 }
 .weather-forecast-temp{
     display: flex;

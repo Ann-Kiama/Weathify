@@ -18,6 +18,8 @@ console.log(response.data)
      windElement.innerHTML= `${response.data.wind.speed}km/h`;
      cityElement.innerHTML=response.data.city;
     temperatureElement.innerHTML= Math.round(temperature);
+
+    getForecast(response.data.city);
 }
 
 function formatDate(date){
@@ -45,22 +47,37 @@ let searchInput=document.querySelector("#search-input");
 searchCity(searchInput.value);
 }
 
-function displayForecast(){
-   
+function formatDay(timestamp){
+    let date=new Date(timestamp *1000);
+    let days=["Sun","Mon", "Tue","Wed","Thur","Fri","Sat"];
 
-    let days=["Sun","Mon", "Tue", "Wed","Thur","Fri","Sat"];
+    return days[date.getDay()];
+}
+
+function getForecast(city){
+    let apiKey="281d3c04932a5df0f10bbof67859adta";
+    let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(displayForecast);
+    
+}
+
+function displayForecast(response){
+
     let forecastHtml="";
 
-    days.forEach(function(day) {
+    response.data.daily.forEach(function(day, index) {
+        if (index<5){
         forecastHtml=forecastHtml +
         `<div class="weather-forcast-details">
-            <div class="weather-forcast-day"> ${day}</div> 
-            <div class="weather-forecast-icon">⛅</div> 
+            <div class="weather-forcast-day"> ${formatDay(day.time)}</div> 
+        
+            <img src="${day.condition.icon_url}" class="weather-forecast-icon"/> 
             <div class="weather-forecast-temp">
-            <div class="weather-forecast-temperature"><strong>24°</strong></div>
-            <div class="weather-forecast-temperature">17°</div>
+            <div class="weather-forecast-temperature"><strong>${Math.round(day.temperature.maximum)}°</strong></div>
+            <div class="weather-forecast-temperature">${Math.round(day.temperature.minimum)}°</div>
             </div>
          </div>`;
+        }
     });
 
     let forecastElement=document.querySelector("#forecast");
@@ -71,5 +88,4 @@ let searchFormElement= document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);
 
 searchCity("Nairobi");
-displayForecast();
 
